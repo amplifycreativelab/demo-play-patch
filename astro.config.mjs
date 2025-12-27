@@ -7,8 +7,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://github.com/amplifycreativelab",
-  base: "demo1",
+  site: "https://amplifycreativelab.github.io",
+  base: "/demo-play-patch",
   vite: {
     plugins: [tailwindcss()]
   },
