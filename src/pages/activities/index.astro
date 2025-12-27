@@ -1,0 +1,57 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import StickerButton from "../../components/StickerButton.astro";
+import { activities } from "../../data/activities";
+import { Image } from "astro:assets";
+---
+
+<MainLayout title="Activities | PlayPatch">
+    <section class="pt-20 pb-12 text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="font-heading text-5xl font-bold mb-6 text-ink">
+                Our Activities
+            </h1>
+            <p class="text-xl text-ink/70 max-w-2xl mx-auto">
+                Engaging, safe, and wildly fun. Each activity is led by our
+                trained facilitators.
+            </p>
+        </div>
+    </section>
+
+    <section class="pb-24">
+        <div class="container mx-auto px-4 grid gap-12">
+            {
+                activities.map((activity, index) => (
+                    <div
+                        class={`flex flex-col md:flex-row gap-8 items-center ${index % 2 === 1 ? "md:flex-row-reverse" : ""}`}
+                    >
+                        <div class="w-full md:w-1/2 aspect-video bg-cream rounded-[32px] border-3 border-ink shadow-[8px_8px_0px_#1B1B1D] flex items-center justify-center relative overflow-hidden">
+                            <Image
+                                src={activity.image}
+                                alt={activity.title}
+                                class="w-full h-full object-cover"
+                            />
+                        </div>
+
+                        <div class="w-full md:w-1/2 text-center md:text-left">
+                            <span class="inline-block bg-pop-c text-white text-sm font-bold px-3 py-1 rounded-full border-2 border-ink mb-4 shadow-[2px_2px_0px_#1B1B1D]">
+                                Ages {activity.ageRange}
+                            </span>
+                            <h2 class="font-heading text-4xl font-bold mb-4">
+                                {activity.title}
+                            </h2>
+                            <p class="text-lg text-ink/70 mb-8">
+                                {activity.description}
+                            </p>
+                            <StickerButton
+                                href={`${import.meta.env.BASE_URL}/contact/`}
+                            >
+                                Book This Activity
+                            </StickerButton>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+</MainLayout>

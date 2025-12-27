@@ -1,0 +1,44 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import PackageCard from "../../components/PackageCard.astro";
+import { packages } from "../../data/packages";
+import StickerButton from "../../components/StickerButton.astro";
+---
+
+<MainLayout title="Packages | PlayPatch">
+    <section class="pt-20 pb-12 bg-cream text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="font-heading text-5xl font-bold mb-6 text-ink">
+                Party Packages
+            </h1>
+            <p class="text-xl text-ink/70 max-w-2xl mx-auto">
+                Transparent pricing, no hidden fees. All packages include a
+                dedicated host.
+            </p>
+        </div>
+    </section>
+
+    <section class="pb-24 bg-cream">
+        <div
+            class="container mx-auto px-4 grid md:grid-cols-3 gap-8 items-start"
+        >
+            {packages.map((pkg) => <PackageCard {...pkg} />)}
+        </div>
+
+        <div
+            class="text-center mt-16 p-8 bg-white rounded-[32px] border-3 border-ink max-w-3xl mx-auto shadow-[8px_8px_0px_#1B1B1D]"
+        >
+            <h3 class="font-heading text-2xl font-bold mb-4">
+                Need something custom?
+            </h3>
+            <p class="mb-6 text-ink/70">
+                We can tailor a package for larger groups, corporate events, or
+                specific themes.
+            </p>
+            <StickerButton
+                href={`${import.meta.env.BASE_URL}/contact/`}
+                variant="secondary">Contact Us</StickerButton
+            >
+        </div>
+    </section>
+</MainLayout>

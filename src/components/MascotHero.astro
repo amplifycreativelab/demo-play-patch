@@ -1,0 +1,71 @@
+---
+import StickerButton from "./StickerButton.astro";
+import { Image } from "astro:assets";
+import mascotImg from "../assets/images/mascot-hero-real.webp";
+---
+
+<section class="relative pt-12 pb-20 overflow-hidden">
+    <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+        <div class="text-center md:text-left z-10">
+            <div
+                class="inline-block bg-pop-b text-ink font-bold px-4 py-1 rounded-full border-2 border-ink mb-6 rotate-[-2deg] shadow-[2px_2px_0px_#1B1B1D]"
+            >
+                Concept Demo • Motion-first UI
+            </div>
+            <h1
+                class="font-heading text-5xl md:text-7xl font-bold leading-[1.1] mb-6 text-ink"
+            >
+                Making Birthdays <span class="text-pop-a">Magical</span> & Stress-Free.
+            </h1>
+            <p
+                class="text-lg md:text-xl text-ink/80 mb-8 max-w-lg mx-auto md:mx-0 font-medium"
+            >
+                PlayPatch creates unforgettable moments for kids and gives
+                parents a chance to relax. Safe, structured, and full of joy.
+            </p>
+
+            <div
+                class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+            >
+                <StickerButton href={`${import.meta.env.BASE_URL}/contact/`}>
+                    Book a Party
+                </StickerButton>
+                <StickerButton
+                    href={`${import.meta.env.BASE_URL}/packages/`}
+                    variant="outline"
+                >
+                    View Packages
+                </StickerButton>
+            </div>
+        </div>
+
+        <div class="relative z-0">
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-pop-c/20 rounded-full blur-3xl -z-10"
+            >
+            </div>
+
+            <!-- Placeholder for Mascot Image -->
+            <!-- Mascot Image -->
+            <div
+                class="aspect-square bg-cream border-4 border-ink rounded-[40px] shadow-[12px_12px_0px_#1B1B1D] overflow-hidden relative"
+            >
+                <Image
+                    src={mascotImg}
+                    alt="Cute PlayPatch Monster Mascot"
+                    class="w-full h-full object-cover"
+                />
+            </div>
+        </div>
+    </div>
+
+    <!-- Decorative Elements -->
+    <div
+        class="absolute top-10 right-10 w-12 h-12 bg-pop-b rounded-full border-2 border-ink"
+    >
+    </div>
+    <div
+        class="absolute bottom-10 left-10 w-8 h-8 bg-pop-a rounded-lg border-2 border-ink rotate-12"
+    >
+    </div>
+</section>

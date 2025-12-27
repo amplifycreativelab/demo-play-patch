@@ -1,0 +1,195 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import MascotHero from "../components/MascotHero.astro";
+import PackageCard from "../components/PackageCard.astro";
+import TrustBlock from "../components/TrustBlock.astro";
+import StickerButton from "../components/StickerButton.astro";
+import { packages } from "../data/packages";
+import { testimonials } from "../data/testimonials";
+import { Image } from "astro:assets";
+import craftImg from "../assets/images/creative-craft-real.webp";
+import discoImg from "../assets/images/mini-disco-real.webp";
+import sensoryImg from "../assets/images/sensory-play-real.webp";
+
+// Preview only first 3 packages - actually we have 3.
+const featuredPackages = packages.slice(0, 3);
+---
+
+<MainLayout title="PlayPatch | Kids Party Concept Demo">
+	<MascotHero />
+
+	<section class="py-20 bg-cream">
+		<div class="container mx-auto px-4 text-center mb-12">
+			<h2 class="font-heading text-4xl font-bold mb-4">
+				Serious Fun for Everyone.
+			</h2>
+			<p class="text-lg text-ink/70 max-w-2xl mx-auto">
+				From sensory play for toddlers to full-blown discos for the big
+				kids, we have something to make every child smile.
+			</p>
+		</div>
+
+		<div class="container mx-auto px-4 grid md:grid-cols-3 gap-8 mb-12">
+			<!-- Activity Previews (Ref: Data/Activities - hardcoded for preview or import?) -->
+			<!-- Using hardcoded previews for layout speed/control on home -->
+			<div
+				class="bg-white rounded-3xl p-6 border-3 border-ink shadow-[4px_4px_0px_#1B1B1D]"
+			>
+				<div
+					class="h-48 rounded-xl mb-4 overflow-hidden border-2 border-ink"
+				>
+					<Image
+						src={craftImg}
+						alt="Creative Craft"
+						class="w-full h-full object-cover"
+					/>
+				</div>
+				<h3 class="font-heading text-2xl font-bold mb-2">
+					Creative Craft
+				</h3>
+				<p class="text-ink/70 mb-4">
+					Mess-making without the clean-up. Painting, building, and
+					creating.
+				</p>
+				<a
+					href={`${import.meta.env.BASE_URL}/activities/`}
+					class="text-pop-a font-bold hover:underline">Learn More →</a
+				>
+			</div>
+			<div
+				class="bg-white rounded-3xl p-6 border-3 border-ink shadow-[4px_4px_0px_#1B1B1D]"
+			>
+				<div
+					class="h-48 rounded-xl mb-4 overflow-hidden border-2 border-ink"
+				>
+					<Image
+						src={discoImg}
+						alt="Mini Disco"
+						class="w-full h-full object-cover"
+					/>
+				</div>
+				<h3 class="font-heading text-2xl font-bold mb-2">Mini Disco</h3>
+				<p class="text-ink/70 mb-4">
+					High energy dance games, bubbles, and kid-friendly hits.
+				</p>
+				<a
+					href={`${import.meta.env.BASE_URL}/activities/`}
+					class="text-pop-a font-bold hover:underline">Learn More →</a
+				>
+			</div>
+			<div
+				class="bg-white rounded-3xl p-6 border-3 border-ink shadow-[4px_4px_0px_#1B1B1D]"
+			>
+				<div
+					class="h-48 rounded-xl mb-4 overflow-hidden border-2 border-ink"
+				>
+					<Image
+						src={sensoryImg}
+						alt="Sensory Play"
+						class="w-full h-full object-cover"
+					/>
+				</div>
+				<h3 class="font-heading text-2xl font-bold mb-2">
+					Sensory Play
+				</h3>
+				<p class="text-ink/70 mb-4">
+					Safe, tactile fun with slime, sand, and foam for explorers.
+				</p>
+				<a
+					href={`${import.meta.env.BASE_URL}/activities/`}
+					class="text-pop-a font-bold hover:underline">Learn More →</a
+				>
+			</div>
+		</div>
+
+		<div class="text-center">
+			<StickerButton
+				href={`${import.meta.env.BASE_URL}/activities/`}
+				variant="secondary">View All Activities</StickerButton
+			>
+		</div>
+	</section>
+
+	<TrustBlock />
+
+	<section class="py-20 bg-white">
+		<div class="container mx-auto px-4 text-center mb-16">
+			<span
+				class="inline-block bg-badge text-white font-bold px-4 py-1 rounded-full border-2 border-ink mb-4 shadow-[2px_2px_0px_#1B1B1D] rotate-1"
+				>Party Packages</span
+			>
+			<h2 class="font-heading text-4xl font-bold mb-4">
+				Choose Your Adventure
+			</h2>
+			<p class="text-lg text-ink/70 max-w-2xl mx-auto">
+				All packages include setup, hosting, and cleanup. You just bring
+				the cake.
+			</p>
+		</div>
+
+		<div
+			class="container mx-auto px-4 grid md:grid-cols-3 gap-8 items-start mb-12"
+		>
+			{featuredPackages.map((pkg) => <PackageCard {...pkg} />)}
+		</div>
+	</section>
+
+	<section class="py-20 bg-cream border-t-3 border-ink/5">
+		<div class="container mx-auto px-4 text-center mb-12">
+			<h2 class="font-heading text-4xl font-bold mb-12">
+				Happy Parents, Happy Kids
+			</h2>
+			<div class="grid md:grid-cols-3 gap-8 text-left">
+				{
+					testimonials.map((t) => (
+						<div class="bg-white p-8 rounded-[40px] border-2 border-ink shadow-sm relative">
+							<div class="text-pop-b text-6xl absolute -top-4 left-8 font-heading">
+								"
+							</div>
+							<p class="text-lg text-ink/80 mb-6 relative z-10 italic">
+								{t.content}
+							</p>
+							<div>
+								<div class="font-bold text-lg">{t.name}</div>
+								<div class="text-sm text-ink/50 font-bold uppercase tracking-wider">
+									{t.role}
+								</div>
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section
+		class="py-24 bg-pop-a text-white text-center relative overflow-hidden"
+	>
+		<div class="absolute inset-0 bg-[url('/bg-pattern.svg')] opacity-10">
+		</div>
+		<!-- Mock pattern -->
+		<div class="container mx-auto px-4 relative z-10">
+			<h2 class="font-heading text-4xl md:text-6xl font-bold mb-8">
+				Ready to Party?
+			</h2>
+			<p
+				class="text-xl md:text-2xl mb-12 max-w-2xl mx-auto font-medium opacity-90"
+			>
+				Book your date now and let us handle the rest. Slots fill up
+				fast!
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a
+					href={`${import.meta.env.BASE_URL}/contact/`}
+					class="bg-white text-pop-a px-10 py-4 rounded-full font-bold text-xl shadow-[4px_4px_0px_#1B1B1D] hover:scale-105 active:scale-95 transition-all border-2 border-ink"
+					>Book Now</a
+				>
+				<a
+					href={`${import.meta.env.BASE_URL}/contact/`}
+					class="bg-transparent text-white px-10 py-4 rounded-full font-bold text-xl border-2 border-white hover:bg-white/10 active:scale-95 transition-all"
+					>Enquire First</a
+				>
+			</div>
+		</div>
+	</section>
+</MainLayout>

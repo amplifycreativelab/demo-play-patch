@@ -1,0 +1,91 @@
+---
+import '../styles/global.css';
+import DemoLayout from "./DemoLayout.astro";
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "PlayPatch - Premium Kids Parties & Activities (Concept Demo)" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-cream text-ink font-body antialiased min-h-screen flex flex-col">
+    <DemoLayout>
+    <!-- Skip Link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 bg-pop-a text-white px-4 py-2 rounded-lg font-bold">
+      Skip to content
+    </a>
+
+    <header class="sticky top-0 z-40 w-full bg-cream/90 backdrop-blur-sm border-b-3 border-ink/5">
+      <div class="container mx-auto px-4 h-20 flex items-center justify-between">
+        <a href={import.meta.env.BASE_URL} class="font-heading text-3xl font-bold text-pop-a tracking-tight hover:scale-105 transition-transform">
+          PlayPatch.
+        </a>
+
+        <nav class="hidden md:flex gap-8 font-bold text-lg">
+          <a href={`${import.meta.env.BASE_URL}/packages/`} class="hover:text-pop-a transition-colors">Packages</a>
+          <a href={`${import.meta.env.BASE_URL}/activities/`} class="hover:text-pop-a transition-colors">Activities</a>
+          <a href={`${import.meta.env.BASE_URL}/gallery/`} class="hover:text-pop-a transition-colors">Gallery</a>
+          <a href={`${import.meta.env.BASE_URL}/faqs/`} class="hover:text-pop-a transition-colors">FAQs</a>
+        </nav>
+
+        <div class="flex items-center gap-4">
+          <a href={`${import.meta.env.BASE_URL}/contact/`} class="hidden md:inline-flex bg-pop-b text-ink border-2 border-ink px-6 py-2 rounded-full font-bold shadow-[2px_2px_0px_#1B1B1D] hover:translate-y-[2px] hover:shadow-none transition-all active:scale-95">
+            Book Party
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="bg-white border-t-3 border-ink/5 pt-16 pb-8 mt-auto">
+      <div class="container mx-auto px-4 grid md:grid-cols-4 gap-8 mb-12">
+        <div class="col-span-1 md:col-span-2">
+          <span class="font-heading text-2xl font-bold text-pop-a block mb-4">PlayPatch.</span>
+          <p class="max-w-xs text-lg mb-6">Joyful, safe, and structured fun for kids and peace of mind for parents.</p>
+          <div class="flex gap-2 text-sm font-bold text-ink/60">
+            <span>Concept Demo</span>
+            <span>•</span>
+            <span>Non-indexed portfolio build</span>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="font-heading text-xl mb-4 text-pop-c">Explore</h3>
+          <ul class="space-y-2 font-medium">
+            <li><a href={`${import.meta.env.BASE_URL}/packages/`} class="hover:text-pop-b">Packages</a></li>
+            <li><a href={`${import.meta.env.BASE_URL}/activities/`} class="hover:text-pop-b">Activities</a></li>
+            <li><a href={`${import.meta.env.BASE_URL}/gallery/`} class="hover:text-pop-b">Gallery</a></li>
+          </ul>
+        </div>
+
+        <div>
+           <h3 class="font-heading text-xl mb-4 text-pop-c">Help</h3>
+           <ul class="space-y-2 font-medium">
+            <li><a href={`${import.meta.env.BASE_URL}/faqs/`} class="hover:text-pop-b">FAQs</a></li>
+            <li><a href={`${import.meta.env.BASE_URL}/contact/`} class="hover:text-pop-b">Contact Us</a></li>
+            <li><a href="#" class="hover:text-pop-b">Safety Policy</a></li>
+           </ul>
+        </div>
+      </div>
+      <div class="container mx-auto px-4 text-center text-sm font-medium text-ink/40 border-t border-ink/5 pt-8">
+        © {new Date().getFullYear()} PlayPatch Concept Demo.
+      </div>
+    </footer>
+    </DemoLayout>
+  </body>
+</html>

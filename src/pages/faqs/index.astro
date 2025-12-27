@@ -1,0 +1,76 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import StickerButton from "../../components/StickerButton.astro";
+
+const faqs = [
+    {
+        question: "Do you provide the food?",
+        answer: "We focus on the entertainment and setup. We don't cater food directly, but we can recommend some amazing local kid-friendly caterers! You are welcome to bring your own food.",
+    },
+    {
+        question: "What happens if it rains?",
+        answer: "Our activities are designed to be adaptable. If you have an indoor space booked (like a hall or living room), we can easily shift the fun inside without losing any of the magic.",
+    },
+    {
+        question: "Are your hosts qualified?",
+        answer: "Absolutely. Every host has a valid Working With Children Check and is trained in First Aid. We select our team for their energy, patience, and ability to engage with kids.",
+    },
+    {
+        question: "How far in advance should I book?",
+        answer: "We recommend booking at least 4-6 weeks in advance to secure your preferred date and time, especially for weekends.",
+    },
+    {
+        question: "Is there a deposit?",
+        answer: "Yes, we require a 50% deposit to lock in your date. The remainder is due 3 days before the party.",
+    },
+];
+---
+
+<MainLayout title="FAQs | PlayPatch">
+    <section class="pt-20 pb-12 text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="font-heading text-5xl font-bold mb-6 text-ink">
+                Frequently Asked Questions
+            </h1>
+            <p class="text-xl text-ink/70 max-w-2xl mx-auto">
+                Everything you need to know before the big day.
+            </p>
+        </div>
+    </section>
+
+    <section class="pb-24">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <div class="space-y-6">
+                {
+                    faqs.map((faq) => (
+                        <details class="group bg-white rounded-2xl border-2 border-ink shadow-[4px_4px_0px_#1B1B1D] open:bg-cream transition-colors">
+                            <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-bold text-lg md:text-xl select-none">
+                                {faq.question}
+                                <span class="transform group-open:rotate-180 transition-transform text-pop-a text-2xl">
+                                    ▼
+                                </span>
+                            </summary>
+                            <div class="px-6 pb-6 text-ink/80 leading-relaxed border-t-2 border-ink/10 pt-4">
+                                {faq.answer}
+                            </div>
+                        </details>
+                    ))
+                }
+            </div>
+
+            <div
+                class="text-center mt-12 bg-pop-c/10 p-8 rounded-3xl border-2 border-ink border-dashed"
+            >
+                <h3 class="font-heading text-2xl font-bold mb-2">
+                    Still have questions?
+                </h3>
+                <p class="mb-6 text-ink/70">
+                    We're happy to chat! Give us a call or send a message.
+                </p>
+                <StickerButton href={`${import.meta.env.BASE_URL}/contact/`}
+                    >Contact Us</StickerButton
+                >
+            </div>
+        </div>
+    </section>
+</MainLayout>

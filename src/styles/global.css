@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@import "@fontsource/baloo-2";
+@import "@fontsource/inter";
+
+@theme {
+    --font-heading: "Baloo 2", system-ui;
+    --font-body: "Inter", system-ui;
+
+    --color-cream: #FFF7E8;
+    --color-ink: #1B1B1D;
+    --color-pop-a: #7C5CFF;
+    --color-pop-b: #FFB000;
+    --color-pop-c: #00D9A6;
+    --color-badge: #FF4D6D;
+
+    --radius-card: 24px;
+}
+
+@layer utilities {
+    .squidgy-hover {
+        transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .squidgy-hover:hover {
+        transform: scale(0.95);
+    }
+
+    .squidgy-hover:active {
+        transform: scale(0.9);
+    }
+}

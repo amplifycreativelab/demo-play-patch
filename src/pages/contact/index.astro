@@ -1,0 +1,170 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import StickerButton from "../../components/StickerButton.astro";
+---
+
+<MainLayout title="Contact Us | PlayPatch">
+    <section class="grid md:grid-cols-2 min-h-[calc(100vh-80px)]">
+        <div
+            class="bg-pop-a text-white p-12 flex flex-col justify-center relative overflow-hidden"
+        >
+            <div
+                class="absolute inset-0 bg-[url('/bg-pattern.svg')] opacity-10"
+            >
+            </div>
+            <div class="relative z-10 max-w-md mx-auto md:mx-0">
+                <span
+                    class="inline-block bg-white text-pop-a font-bold px-4 py-1 rounded-full border-2 border-ink mb-6 shadow-[2px_2px_0px_#1B1B1D] rotate-[-2deg]"
+                    >Let's Chat</span
+                >
+                <h1 class="font-heading text-5xl md:text-6xl font-bold mb-6">
+                    Let's Plan the Best Party Ever.
+                </h1>
+                <p class="text-xl opacity-90 mb-12 font-medium">
+                    This is a non-indexed concept demo. Use the form to preview
+                    the layout, micro-interactions, and flow.
+                </p>
+
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 bg-white text-pop-a rounded-full flex items-center justify-center text-xl border-2 border-ink shadow-[2px_2px_0px_#1B1B1D]"
+                        >
+                            📞
+                        </div>
+                        <div>
+                            <p
+                                class="text-sm opacity-70 font-bold uppercase tracking-wider"
+                            >
+                                Concept Demo
+                            </p>
+                            <p class="font-bold text-xl">Non-indexed portfolio build</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 bg-white text-pop-a rounded-full flex items-center justify-center text-xl border-2 border-ink shadow-[2px_2px_0px_#1B1B1D]"
+                        >
+                            📧
+                        </div>
+                        <div>
+                            <p
+                                class="text-sm opacity-70 font-bold uppercase tracking-wider"
+                            >
+                                Studio Site
+                            </p>
+                            <p class="font-bold text-xl">amplifycreativelab.com</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 bg-white text-pop-a rounded-full flex items-center justify-center text-xl border-2 border-ink shadow-[2px_2px_0px_#1B1B1D]"
+                        >
+                            📍
+                        </div>
+                        <div>
+                            <p
+                                class="text-sm opacity-70 font-bold uppercase tracking-wider"
+                            >
+                                Highlights
+                            </p>
+                            <p class="font-bold text-xl">Packages • Activities • Gallery</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-cream p-12 flex flex-col justify-center">
+            <form class="max-w-md mx-auto w-full space-y-6" id="contact-form">
+                <div class="space-y-1">
+                    <label for="name" class="font-bold text-ink ml-1"
+                        >Your Name</label
+                    >
+                    <input
+                        type="text"
+                        id="name"
+                        required
+                        class="w-full bg-white border-2 border-ink rounded-xl px-4 py-3 font-bold focus:outline-none focus:ring-4 focus:ring-pop-a/20 shadow-[4px_4px_0px_#1B1B1D] transition-all"
+                        placeholder="Parent's Name"
+                    />
+                </div>
+
+                <div class="space-y-1">
+                    <label for="email" class="font-bold text-ink ml-1"
+                        >Email Address</label
+                    >
+                    <input
+                        type="email"
+                        id="email"
+                        required
+                        class="w-full bg-white border-2 border-ink rounded-xl px-4 py-3 font-bold focus:outline-none focus:ring-4 focus:ring-pop-a/20 shadow-[4px_4px_0px_#1B1B1D] transition-all"
+                        placeholder="you@example.com"
+                    />
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                        <label for="type" class="font-bold text-ink ml-1"
+                            >Enquiry Type</label
+                        >
+                        <select
+                            id="type"
+                            class="w-full bg-white border-2 border-ink rounded-xl px-4 py-3 font-bold focus:outline-none focus:ring-4 focus:ring-pop-a/20 shadow-[4px_4px_0px_#1B1B1D] transition-all appearance-none cursor-pointer"
+                        >
+                            <option>Booking</option>
+                            <option>General Question</option>
+                            <option>Feedback</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1">
+                        <label for="date" class="font-bold text-ink ml-1"
+                            >Party Date</label
+                        >
+                        <input
+                            type="date"
+                            id="date"
+                            class="w-full bg-white border-2 border-ink rounded-xl px-4 py-3 font-bold focus:outline-none focus:ring-4 focus:ring-pop-a/20 shadow-[4px_4px_0px_#1B1B1D] transition-all cursor-pointer"
+                        />
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <label for="message" class="font-bold text-ink ml-1"
+                        >Message</label
+                    >
+                    <textarea
+                        id="message"
+                        rows="4"
+                        class="w-full bg-white border-2 border-ink rounded-xl px-4 py-3 font-bold focus:outline-none focus:ring-4 focus:ring-pop-a/20 shadow-[4px_4px_0px_#1B1B1D] transition-all"
+                        placeholder="Tell us about the big day..."></textarea>
+                </div>
+
+                <StickerButton
+                    as="button"
+                    isSubmit
+                    class="w-full text-xl"
+                    href="#">Send Enquiry</StickerButton
+                >
+
+                <p class="text-center text-sm text-ink/50 font-medium pt-2">
+                    We usually reply within 24 hours!
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        import { triggerConfetti } from "../../utils/confetti";
+
+        const form = document.getElementById("contact-form");
+        form?.addEventListener("submit", (e) => {
+            e.preventDefault();
+            triggerConfetti();
+            // Reset form or show success message
+            // For demo, we just burst confetti
+        });
+    </script>
+</MainLayout>
