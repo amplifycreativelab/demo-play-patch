@@ -1,6 +1,10 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import StickerButton from "../../components/StickerButton.astro";
+
+const base = import.meta.env.BASE_URL.endsWith("/")
+    ? import.meta.env.BASE_URL
+    : `${import.meta.env.BASE_URL}/`;
 ---
 
 <MainLayout title="Contact Us | PlayPatch">
@@ -9,7 +13,8 @@ import StickerButton from "../../components/StickerButton.astro";
             class="bg-pop-a text-white p-12 flex flex-col justify-center relative overflow-hidden"
         >
             <div
-                class="absolute inset-0 bg-[url('/bg-pattern.svg')] opacity-10"
+                class="absolute inset-0 opacity-10"
+                style={`background-image: url(${base}bg-pattern.svg);`}
             >
             </div>
             <div class="relative z-10 max-w-md mx-auto md:mx-0">

@@ -20,6 +20,10 @@ const {
     badge,
     isPopular = false,
 } = Astro.props;
+
+const base = import.meta.env.BASE_URL.endsWith("/")
+    ? import.meta.env.BASE_URL
+    : `${import.meta.env.BASE_URL}/`;
 ---
 
 <div
@@ -64,7 +68,7 @@ const {
     </ul>
 
     <StickerButton
-        href={`${import.meta.env.BASE_URL}/contact/`}
+        href={`${base}contact/`}
         variant={isPopular ? "primary" : "secondary"}
         class="w-full"
     >

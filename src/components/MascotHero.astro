@@ -2,6 +2,10 @@
 import StickerButton from "./StickerButton.astro";
 import { Image } from "astro:assets";
 import mascotImg from "../assets/images/mascot-hero-real.webp";
+
+const base = import.meta.env.BASE_URL.endsWith("/")
+    ? import.meta.env.BASE_URL
+    : `${import.meta.env.BASE_URL}/`;
 ---
 
 <section class="relative pt-12 pb-20 overflow-hidden">
@@ -27,11 +31,11 @@ import mascotImg from "../assets/images/mascot-hero-real.webp";
             <div
                 class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
             >
-                <StickerButton href={`${import.meta.env.BASE_URL}/contact/`}>
+                <StickerButton href={`${base}contact/`}>
                     Book a Party
                 </StickerButton>
                 <StickerButton
-                    href={`${import.meta.env.BASE_URL}/packages/`}
+                    href={`${base}packages/`}
                     variant="outline"
                 >
                     View Packages

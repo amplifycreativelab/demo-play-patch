@@ -13,6 +13,10 @@ import sensoryImg from "../assets/images/sensory-play-real.webp";
 
 // Preview only first 3 packages - actually we have 3.
 const featuredPackages = packages.slice(0, 3);
+
+const base = import.meta.env.BASE_URL.endsWith("/")
+	? import.meta.env.BASE_URL
+	: `${import.meta.env.BASE_URL}/`;
 ---
 
 <MainLayout title="PlayPatch | Kids Party Concept Demo">
@@ -52,7 +56,7 @@ const featuredPackages = packages.slice(0, 3);
 					creating.
 				</p>
 				<a
-					href={`${import.meta.env.BASE_URL}/activities/`}
+					href={`${base}activities/`}
 					class="text-pop-a font-bold hover:underline">Learn More →</a
 				>
 			</div>
@@ -73,7 +77,7 @@ const featuredPackages = packages.slice(0, 3);
 					High energy dance games, bubbles, and kid-friendly hits.
 				</p>
 				<a
-					href={`${import.meta.env.BASE_URL}/activities/`}
+					href={`${base}activities/`}
 					class="text-pop-a font-bold hover:underline">Learn More →</a
 				>
 			</div>
@@ -96,7 +100,7 @@ const featuredPackages = packages.slice(0, 3);
 					Safe, tactile fun with slime, sand, and foam for explorers.
 				</p>
 				<a
-					href={`${import.meta.env.BASE_URL}/activities/`}
+					href={`${base}activities/`}
 					class="text-pop-a font-bold hover:underline">Learn More →</a
 				>
 			</div>
@@ -104,7 +108,7 @@ const featuredPackages = packages.slice(0, 3);
 
 		<div class="text-center">
 			<StickerButton
-				href={`${import.meta.env.BASE_URL}/activities/`}
+				href={`${base}activities/`}
 				variant="secondary">View All Activities</StickerButton
 			>
 		</div>
@@ -165,7 +169,10 @@ const featuredPackages = packages.slice(0, 3);
 	<section
 		class="py-24 bg-pop-a text-white text-center relative overflow-hidden"
 	>
-		<div class="absolute inset-0 bg-[url('/bg-pattern.svg')] opacity-10">
+		<div
+			class="absolute inset-0 opacity-10"
+			style={`background-image: url(${base}bg-pattern.svg);`}
+		>
 		</div>
 		<!-- Mock pattern -->
 		<div class="container mx-auto px-4 relative z-10">
@@ -180,12 +187,12 @@ const featuredPackages = packages.slice(0, 3);
 			</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
 				<a
-					href={`${import.meta.env.BASE_URL}/contact/`}
+					href={`${base}contact/`}
 					class="bg-white text-pop-a px-10 py-4 rounded-full font-bold text-xl shadow-[4px_4px_0px_#1B1B1D] hover:scale-105 active:scale-95 transition-all border-2 border-ink"
 					>Book Now</a
 				>
 				<a
-					href={`${import.meta.env.BASE_URL}/contact/`}
+					href={`${base}contact/`}
 					class="bg-transparent text-white px-10 py-4 rounded-full font-bold text-xl border-2 border-white hover:bg-white/10 active:scale-95 transition-all"
 					>Enquire First</a
 				>

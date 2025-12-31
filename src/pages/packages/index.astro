@@ -3,6 +3,10 @@ import MainLayout from "../../layouts/MainLayout.astro";
 import PackageCard from "../../components/PackageCard.astro";
 import { packages } from "../../data/packages";
 import StickerButton from "../../components/StickerButton.astro";
+
+const base = import.meta.env.BASE_URL.endsWith("/")
+    ? import.meta.env.BASE_URL
+    : `${import.meta.env.BASE_URL}/`;
 ---
 
 <MainLayout title="Packages | PlayPatch">
@@ -36,7 +40,7 @@ import StickerButton from "../../components/StickerButton.astro";
                 specific themes.
             </p>
             <StickerButton
-                href={`${import.meta.env.BASE_URL}/contact/`}
+                href={`${base}contact/`}
                 variant="secondary">Contact Us</StickerButton
             >
         </div>
